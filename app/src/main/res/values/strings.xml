@@ -1,0 +1,39 @@
+<!DOCTYPE resources [<!ENTITY ambulance "Ambulance" ><!ENTITY emergency "Emergency">]>
+<resources>
+    <string name="app_name">&emergency; &ambulance;</string>
+    <string name="register">Register</string>
+    <string name="password">Password</string>
+    <string name="phone">Phone</string>
+    <string name="age">Age</string>
+    <string name="full_name">Full Name</string>
+    <string name="ambulance_number">&ambulance; Number</string>
+    <string name="hospital">Hospital</string>
+    <string name="email">Email</string>
+    <string name="slogan">Saving <b>Lives</b> Matters</string>
+    <string name="register_as_ambulance">Register as <b>&ambulance;</b></string>
+    <string name="request">&ambulance; Request</string>
+    <string name="create_account">Create Account</string>
+    <string name="login">Login</string>
+    <string name="welcome_msg">Hello There,</string>
+    <string name="app_name2">&emergency; &ambulance; App</string>
+    <string name="cancel">Cancel</string>
+    <string name="sign_out">Sign <b>Out</b></string>
+    <string name="profile">Profile</string>
+    <string name="save">Save</string>
+    <string name="location">Location</string>
+    <string name="username">Username</string>
+    <string name="ongoing_msg">You have an ongoing <b>&emergency;</b> request</string>
+    <string name="details">&emergency; Details</string>
+    <string name="msg_arrived">&ambulance; has Arrived</string>
+    <string name="on_way">&ambulance; On The Way</string>
+    <string name="msg_search">Searching for &ambulance;</string>
+    <string name="where">Where are you?</string>
+    <string name="call">Call</string>
+    <string name="sign_in"><b>Sign</b> In</string>
+    <string name="msg_profile">You can edit your profile details here</string>
+    <string name="ongoing">Ongoing</string>
+    <string name="msg_started">On Trip</string>
+    <string name="amb_list">&ambulance; List</string>
+    <string name="msg_amb_list">Manage registered &ambulance;s</string>
+    <string name="stats">Statistics</string>
+</resources>
