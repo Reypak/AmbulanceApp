@@ -4,6 +4,7 @@ import static com.matt.ambulance.util.Strings.stimestamp;
 import static com.matt.ambulance.util.Util.statsRef;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,8 @@ import com.matt.ambulance.R;
 import com.matt.ambulance.object.Stat;
 import com.matt.ambulance.util.Util;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -54,7 +57,19 @@ public class Stats extends AppCompatActivity {
     private void getRequests() {
         // seven days ago
         Date sevenDaysAgo = new Date(System.currentTimeMillis() - TimeUnit.DAYS.toMillis(7));
-        Date oneDayAgo = new Date(System.currentTimeMillis() - TimeUnit.DAYS.toMillis(1));
+        Date oneDayAgo = new Date();
+
+        DateFormat justDay = new SimpleDateFormat("yyyyMMdd");
+        try {
+            oneDayAgo = justDay.parse(justDay.format(new Date()));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        Log.i("56y", oneDayAgo.toString());
+
+//        Date oneDayAgo = new Date(System.currentTimeMillis() - TimeUnit.DAYS.toMillis(1));
+
 
         FirestoreRecyclerOptions<Stat> options = new FirestoreRecyclerOptions.Builder<Stat>()
                 .setQuery(statsRef

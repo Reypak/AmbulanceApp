@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:background="?selectableItemBackgroundBorderless"
-            android:clickable="true"
+            android:onClick="PasswordReset"
             android:padding="10dp"
             android:text="Forgot Password?"
             android:textColor="@color/white" />

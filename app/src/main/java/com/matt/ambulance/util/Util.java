@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
@@ -137,7 +138,14 @@ public class Util {
         context.startActivity(intent);
     }
 
-//    requireContext().startService(new Intent(requireContext(), MyService.class));
-/*Intent intent = new Intent(this, MyService.class);
-    stopService(intent);*/
+    public static Snackbar snackbar(View rootView, String msg) {
+        Snackbar snackbar = null;
+        if (rootView != null) {
+            snackbar = Snackbar.make(rootView.getRootView().findViewById(android.R.id.content),
+                    msg, Snackbar.LENGTH_LONG);
+            snackbar.show();
+        }
+        return snackbar;
+    }
+
 }

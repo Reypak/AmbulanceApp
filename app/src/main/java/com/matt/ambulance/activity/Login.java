@@ -18,6 +18,7 @@ import com.matt.ambulance.util.Util;
 public class Login extends AppCompatActivity {
 
     public static Activity MActivity;
+    EditText etEmail, etPwrd;
     private FirebaseAuth auth;
 
     @Override
@@ -26,6 +27,9 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         MActivity = this;
         auth = FirebaseAuth.getInstance();
+
+        etEmail = findViewById(R.id.etEmail);
+        etPwrd = findViewById(R.id.etPwrd);
     }
 
     /*  @Override
@@ -42,10 +46,7 @@ public class Login extends AppCompatActivity {
     }
 
     public void LoginAction(View view) {
-        EditText etEmail, etPwrd;
 
-        etEmail = findViewById(R.id.etEmail);
-        etPwrd = findViewById(R.id.etPwrd);
 
         String email = etEmail.getText().toString().trim();
         String password = etPwrd.getText().toString().trim();
@@ -84,5 +85,31 @@ public class Login extends AppCompatActivity {
             etEmail.setError(empty);
         }
 
+    }
+
+    public void PasswordReset(View view) {
+        String email = etEmail.getText().toString().trim();
+        if (!email.isEmpty()) {
+
+
+
+            Util.snackbar(getWindow().getDecorView().getRootView(), "Confirm Send Password Reset Email").setAction("Yes", view1 -> {
+                ProgressDialog dialog = ProgressDialog.show(Login.this, "",
+                        "Sending...", true);
+                dialog.show();
+
+                auth.sendPasswordResetEmail(email).addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Util.snackbar(getWindow().getDecorView().getRootView(), "Password Reset Email Sent");
+                        dialog.dismiss();
+                    } else {
+                        Toast.makeText(MActivity, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            });
+        } else {
+            etEmail.requestFocus();
+            etEmail.setError("Enter email address to send a password reset link");
+        }
     }
 }
