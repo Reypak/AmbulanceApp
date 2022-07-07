@@ -91,8 +91,6 @@ public class Login extends AppCompatActivity {
         String email = etEmail.getText().toString().trim();
         if (!email.isEmpty()) {
 
-
-
             Util.snackbar(getWindow().getDecorView().getRootView(), "Confirm Send Password Reset Email").setAction("Yes", view1 -> {
                 ProgressDialog dialog = ProgressDialog.show(Login.this, "",
                         "Sending...", true);
